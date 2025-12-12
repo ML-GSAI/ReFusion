@@ -1,0 +1,21 @@
+task: simpleqa
+dataset_path: openai/simpleqa
+output_type: generate_until
+training_split: null
+validation_split: null
+test_split: test
+description: "For the given question, please provide a step-by-step approach to arrive at the final answer following the format: 'Let's think step by step. ... Therefore, the final answer is ...'.\n\n"
+doc_to_text: "Question: {{question.strip()}}\nAnswer: Let's think step by step:"
+doc_to_target: "{{answer.strip()}}"
+process_results: !function utils.process_results
+num_fewshot: 0
+generation_kwargs:
+  until:
+    - "\nQ:"
+metric_list:
+  - metric: em
+    aggregation: mean
+    higher_is_better: true
+  - metric: f1
+    aggregation: mean
+    higher_is_better: true

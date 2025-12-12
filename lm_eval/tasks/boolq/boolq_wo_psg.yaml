@@ -1,0 +1,3 @@
+include: default.yaml
+task: boolq_wo_psg
+doc_to_text: "Question: {{question.strip()}}?\nA. true\nB. false\nAnswer:"

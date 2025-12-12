@@ -1,0 +1,30 @@
+task: hotpotqa
+dataset_name: distractor
+output_type: generate_until
+dataset_path: hotpot_qa/hotpot_qa
+training_split: train
+validation_split: validation
+description: "For the given multi-hop question, please provide a step-by-step approach to arrive at the final answer. Break down the question into sub-questions or tasks, and provide the reasoning and intermediate steps required to answer each sub-question. Finally, combine the information from all the steps to provide the complete answer to the original multi-hop question such as 'Therefore, the final answer is ...'.\n\n"
+doc_to_target: '{{answer.strip()}}'
+doc_to_text: !function utils.doc_to_text
+# fewshot_delimiter: \n\n
+fewshot_config:
+  sampler: first_n
+  samples: !function utils.read_example
+generation_kwargs:
+  do_sample: false
+  until:
+  - '<|eot_id|>'
+  - '<|start_header_id|>user<|end_header_id|>'
+  - 'Q:'
+  - 'Facts:'
+  - </s>
+  - <|im_end|>
+process_results: !function utils.process_results
+metric_list:
+  - metric: em
+    aggregation: mean
+    higher_is_better: true
+  - metric: f1
+    aggregation: mean
+    higher_is_better: true
