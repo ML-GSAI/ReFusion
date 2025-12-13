@@ -27,3 +27,65 @@ conda activate refusion_py10
 ```
 
 ### Training
+#### 1. Data Preparation
+We provide a sample dataset in `data/train_data.json` to illustrate the required format. Please ensure your training data is organized as a JSON list of objects, where each object contains a `query` and a `response`.
+
+**Data Format Example:**
+
+```json
+[
+    {
+        "query": "...",
+        "response": "..."
+    },
+    {
+        "query": "...",
+        "response": "..."
+    }
+]
+```
+
+#### 2. Running the Training Script
+
+**Single-Node Training:**
+
+To train on a single machine, simply run:
+
+```bash
+bash train.sh
+```
+
+**Multi-Node Training:**
+
+For distributed training across multiple nodes (e.g., 2 nodes), specify the node count (`-n`), current rank (`-r`), and the master node IP address (`-m`):
+
+```bash
+# Example: Running on the master node (Rank 0)
+bash train.sh -n 2 -r 0 -m 192.168.1.1
+
+# Example: Running on the worker node (Rank 1)
+bash train.sh -n 2 -r 1 -m 192.168.1.1
+```
+
+### Inference
+```python
+python generate.py
+```
+
+### Evaluation
+```bash
+bash eval.sh
+```
+
+## Experimental Results
+<div align="center">
+  <img src="./images/results.png" width="80%" alt="Main Experimental Results" />
+  <br>
+  <em>Table: Zero-shot performance and throughput (TPS) comparison on multiple benchmarks. Each model displays accuracy/pass@1 (top row) and throughput (TPS, bottom row).</em>
+</div>
+
+**Key Results:**
+
+* **Superior Performance:** ReFusion achieves a **34% performance gain** over prior MDMs.
+* **High Efficiency:** It provides an over **18× speedup** compared to MDMs and a **2.33× speedup** compared to strong ARMs.
+* **Gap Bridging:** ReFusion effectively bridges the performance gap to strong ARMs while maintaining significantly faster inference speeds.
