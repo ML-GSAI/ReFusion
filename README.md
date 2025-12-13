@@ -10,9 +10,20 @@ We introduce ReFusion, a novel masked diffusion model featuring two core innovat
 Empirically, ReFusion not only outperforms prior MDMs with a **34% performance gain** and an over **18× speedup** on average, but also bridges the performance gap to strong ARMs while maintaining a **2.33× average speedup**.
 
 <div align="center">
-  <img src="./images/models.png" width="40%" alt="图片描述(用于辅助阅读)" />
+  <img src="./images/models.png" width="50%" alt="ReFusion's performance" />
 
   <br>
 
   <em>Figure: ReFusion achieves the best balance of speed and accuracy on MBPP. Metrics are calculated relative to the Qwen3-8B baseline.</em>
 </div>
+
+## Usage
+### Environment Setup
+```bash
+git clone https://github.com/ML-GSAI/ReFusion.git
+cd ReFusion
+conda env create -f refusion_full_env.yml
+conda activate refusion_py10
+```
+
+### Training
