@@ -1,6 +1,15 @@
+<div align="center">
+
 # ReFusion: A Diffusion Large Language Model with Parallel Autoregressive Decoding
-[![arXiv](https://img.shields.io/badge/Paper-arXiv-red.svg)]()
+
+[![arXiv](https://img.shields.io/badge/Paper-arXiv-red.svg)](http://arxiv.org/abs/2512.13586)
 [![deploy](https://img.shields.io/badge/Hugging%20Face-ReFusion-FFEB3B)](https://huggingface.co/GSAI-ML/ReFusion)
+
+<br>
+
+<img src="./images/refusion_visualization.gif" width="80%" alt="ReFusion Demo"/>
+
+</div>
 
 ## Introduction
 We introduce ReFusion, a novel masked diffusion model featuring two core innovations:
@@ -89,3 +98,19 @@ bash eval.sh
 * **Superior Performance:** ReFusion achieves a **34% performance gain** over prior MDMs.
 * **High Efficiency:** It provides an over **18× speedup** compared to MDMs and a **2.33× speedup** compared to strong ARMs.
 * **Gap Bridging:** ReFusion effectively bridges the performance gap to strong ARMs while maintaining significantly faster inference speeds.
+
+## Citation
+
+If you find our work helpful, please consider citing our paper.
+
+```bibtex
+@misc{li2025refusiondiffusionlargelanguage,
+      title={ReFusion: A Diffusion Large Language Model with Parallel Autoregressive Decoding}, 
+      author={Jia-Nan Li and Jian Guan and Wei Wu and Chongxuan Li},
+      year={2025},
+      eprint={2512.13586},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2512.13586}, 
+}
+```
