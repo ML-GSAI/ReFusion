@@ -4,6 +4,7 @@
 
 [![arXiv](https://img.shields.io/badge/Paper-arXiv-red.svg)](http://arxiv.org/abs/2512.13586)
 [![deploy](https://img.shields.io/badge/Hugging%20Face-ReFusion-FFEB3B)](https://huggingface.co/GSAI-ML/ReFusion)
+[![deploy](https://img.shields.io/badge/Hugging%20Face-Data-FFEB3B)](https://huggingface.co/datasets/GSAI-ML/ReFusion)
 
 <br>
 
