@@ -38,7 +38,9 @@ conda activate refusion_py10
 
 ### Training
 #### 1. Data Preparation
-We provide a sample dataset in `data/train_data.json` to illustrate the required format. Please ensure your training data is organized as a JSON list of objects, where each object contains a `query` and a `response`.
+We provide a sample dataset in `data/train_data.json` to illustrate the required format. The full training dataset is available on Hugging Face at [GSAI-ML/ReFusion](https://huggingface.co/datasets/GSAI-ML/ReFusion).
+
+Please ensure your training data is organized as a JSON list of objects, where each object contains a `query` and a `response`.
 
 **Data Format Example:**
 
